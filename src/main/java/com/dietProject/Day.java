@@ -2,6 +2,8 @@ package com.dietProject;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 
 import java.util.ArrayList;
@@ -10,43 +12,69 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Day {
 
-    private String day;
     private List<Meal> meals;
+    private int kcal;
+    private int protein;
+    private int fat;
+    private int carbs;
 
-    private int kcal(){
-
-        int sum = 0;
-        for (Meal meal:meals){
-           sum+=meal.getKcal();
-        }
-        return sum;
-    };
-    private int protein(){
-        int sum = 0;
-        for (Meal meal:meals){
-            sum+=meal.getProtein();
-        }
-        return sum;
+    public Day(List<Meal> meals) {
+        this.meals = meals;
     }
 
-    private int carb(){
-        int sum = 0;
-        for (Meal meal:meals){
-            sum+=meal.getCarbs();
+    public void updateDay (){
+
+        kcal = 0;
+        protein = 0;
+        carbs = 0;
+        fat = 0;
+
+        for (Meal meal : meals) {
+            kcal += meal.getKcal();
+            protein+= meal.getProtein();
+            carbs+=meal.getCarbs();
+            fat+=meal.getFat();
         }
-        return sum;
-    }
-    private int fat(){
-        int sum = 0;
-        for (Meal meal:meals){
-            sum+=meal.getFat();
-        }
-        return sum;
+
     }
 
-
+//    public int countKcal() {
+//
+//        int sum = 0;
+//        for (Meal meal : meals) {
+//            sum += meal.getKcal();
+//        }
+//        return sum;
+//    }
+//
+//    ;
+//
+//    public int countProtein() {
+//        int sum = 0;
+//        for (Meal meal : meals) {
+//            sum += meal.getProtein();
+//        }
+//        return sum;
+//    }
+//
+//    public int countCarb() {
+//        int sum = 0;
+//        for (Meal meal : meals) {
+//            sum += meal.getCarbs();
+//        }
+//        return sum;
+//    }
+//
+//    public int countFat() {
+//        int sum = 0;
+//        for (Meal meal : meals) {
+//            sum += meal.getFat();
+//        }
+//        return sum;
+//    }
 
 
 }

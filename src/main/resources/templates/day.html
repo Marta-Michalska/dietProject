@@ -8,6 +8,48 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-cokolwiek
+<div th:replace="fragments/top_bar.html :: div.top-bar"></div>
+<br><br>
+
+<div style="text-align: right; color:white" class="justify-content-end" th:object="${day}">
+    <div>kcal: <a th:text="${day.kcal}"></a></div><br>
+    <div>protein: <a th:text="${day.protein}"></a></div><br>
+    <div>fat: <a th:text="${day.fat}"></a></div><br>
+    <div>carbs: <a th:text="${day.carbs}"></a></div><br>
+
+
+</div><br><br>
+
+<table th:if="${dayList}!=null" style="color:white" class="table table-bordered table-dark  justify-content-end">
+    <thead>
+    <tr>
+        <th scope="col">meal name</th>
+        <th scope="col">kcal</th>
+        <th scope="col">protein</th>
+        <th scope="col">fat</th>
+        <th scope="col">carbs</th>
+        <th scope="col">recepie</th>
+        <th scope="col">remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="result" data-th-each="meal : ${dayList}">
+        <th th:text="${meal.name}"></th>
+        <td th:text="${meal.kcal}"></td>
+        <td th:text="${meal.protein}"></td>
+        <td th:text="${meal.fat}"></td>
+        <td th:text="${meal.carbs}"></td>
+        <td class="action-td">
+            <input th:href="@{meal.url}" class="btn btn-outline-success" value="See more">
+        </td>
+        <td class="action-td">
+            <form method="post" class="padding5px" action="#" th:action="@{/deleteMeal}">
+                <input type="hidden" th:name="meal_id" th:value="${meal.id}">
+                <input type="submit" class="btn btn-outline-danger" value="Delete">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
