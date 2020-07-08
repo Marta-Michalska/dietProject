@@ -27,7 +27,7 @@ public class IndexController {
     }
 
 
-    @GetMapping(value = "/meal_list")
+    @PostMapping(value = "/meal_list")
     public String mealList(Model model) {
         System.out.println(meals.toString());
         model.addAttribute("mealList", meals);
@@ -37,7 +37,7 @@ public class IndexController {
         request.setKcalMax(2000);
         request.setProteinMax(500);
         model.addAttribute("request", request);
-        return ("/meal_list");
+        return "/meal_list";
     }
 
     @GetMapping(value = "/day")
