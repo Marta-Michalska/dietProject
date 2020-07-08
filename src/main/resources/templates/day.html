@@ -12,13 +12,20 @@
 <br><br>
 
 <div style="text-align: right; color:white" class="justify-content-end" th:object="${day}">
-<!--    <div>kcal: <a th:text="${day.kcal}"></a></div><br>
-    <div>protein: <a th:text="${day.protein}"></a></div><br>
-    <div>fat: <a th:text="${day.fat}"></a></div><br>
-    <div>carbs: <a th:text="${day.carbs}"></a></div><br>-->
+    <div>kcal:
+        <input th:type="text" th:value="${day.kcal}"/>
+    </div>
+    <br>
+    <div>protein: <input th:type="text" th:value="${day.protein}"/></div>
+    <br>
+    <div>fat: <input th:type="text" th:value="${day.fat}"/></div>
+    <br>
+    <div>carbs: <input th:type="text" th:value="${day.carbs}"/></div>
+    <br>
 
 
-</div><br><br>
+</div>
+<br><br>
 
 <table th:if="${dayList}!=null" style="color:white" class="table table-bordered table-dark  justify-content-end">
     <thead>
@@ -40,7 +47,7 @@
         <td th:text="${meal.fat}"></td>
         <td th:text="${meal.carbs}"></td>
         <td class="action-td">
-            <a th:href="${meal.url}" target="_blank" class="btn btn-outline-success" >See more</a>
+            <a th:href="${meal.url}" target="_blank" class="btn btn-outline-success">See more</a>
         </td>
         <td class="action-td">
             <form method="post" class="padding5px" action="#" th:action="@{/deleteMeal}">

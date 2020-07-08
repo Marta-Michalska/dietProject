@@ -27,7 +27,7 @@ public class IndexController {
     }
 
 
-    @PostMapping(value = "/meal_list")
+    @GetMapping(value = "/meal_list")
     public String mealList(Model model) {
         System.out.println(meals.toString());
         model.addAttribute("mealList", meals);
@@ -42,6 +42,8 @@ public class IndexController {
 
     @GetMapping(value = "/day")
     public String day(Model model) {
+        model.addAttribute("dayList", dayList);
+        model.addAttribute("day", day);
         return ("/day");
     }
 
