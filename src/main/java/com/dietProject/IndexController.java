@@ -31,7 +31,12 @@ public class IndexController {
     public String mealList(Model model) {
         System.out.println(meals.toString());
         model.addAttribute("mealList", meals);
-        model.addAttribute("request", new Request());
+        Request request = new Request();
+        request.setCarbsMax(500);
+        request.setFatMax(500);
+        request.setKcalMax(2000);
+        request.setProteinMax(500);
+        model.addAttribute("request", request);
         return ("/meal_list");
     }
 
@@ -42,16 +47,14 @@ public class IndexController {
 
     @PostMapping(value = "/search")
     public String search(@ModelAttribute(value = "request") Request request, Model model) {
+        try {
+            String json = httpService.connect(urlbuilder.searchByNutrients(request));
+            meals = jsonreader.parseMealList(json);
 
-
-//        try {
-//            String json = httpService.connect(urlbuilder.searchByNutrients(request));
-//            meals = jsonreader.parseMealList(json);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        meals = jsonreader.parseMealList(Config.jsonListExample);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        meals = jsonreader.parseMealList(Config.jsonListExample);
         System.out.println(request.toString());
         model.addAttribute("mealList", meals);
         return ("/meal_list");
@@ -66,17 +69,17 @@ public class IndexController {
                 mealAdd = meal;
             }
         }
-//        try {
-//            String json = httpService.connect(urlbuilder.searchRecipeById(meal_id));
-//            mealAdd.setRecepieURL(jsonreader.mealUrl(json));
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            String json = httpService.connect(urlbuilder.searchRecipeById(meal_id));
+            mealAdd.setUrl(jsonreader.mealUrl(json));
 
-        //      mealAdd.setRecepieURL(jsonreader.mealUrl(Config.jsonByIDExample)); TODO czytanie z jsona?...
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        mealAdd.setRecepieURL("https://spoonacular.com/pasta-with-garlic-scallions-cauliflower-breadcrumbs-716429");
+//              mealAdd.setUrl(jsonreader.mealUrl(Config.jsonByIDExample));
+
+//        mealAdd.setRecepieURL("https://spoonacular.com/pasta-with-garlic-scallions-cauliflower-breadcrumbs-716429");
 
         dayList.add(mealAdd);
         day.setMeals(dayList);

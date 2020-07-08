@@ -14,7 +14,6 @@ public class Meal {
     private String name;
 
     private int id;
-    private String recepieURL;
 
     private int kcal;
     private int protein;

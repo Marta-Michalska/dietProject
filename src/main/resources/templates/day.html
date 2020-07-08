@@ -40,7 +40,7 @@
         <td th:text="${meal.fat}"></td>
         <td th:text="${meal.carbs}"></td>
         <td class="action-td">
-            <input th:href="@{meal.url}" class="btn btn-outline-success" value="See more">
+            <a th:href="${meal.url}" target="_blank" class="btn btn-outline-success" >See more</a>
         </td>
         <td class="action-td">
             <form method="post" class="padding5px" action="#" th:action="@{/deleteMeal}">

@@ -29,7 +29,7 @@ public class JsonReader {
     }
 
     public String mealUrl(String json){
-        JSONObject jsonMeal = new JSONObject();
+        JSONObject jsonMeal = new JSONObject(json);
         String url = jsonMeal.getString("sourceUrl");
 
         return url;

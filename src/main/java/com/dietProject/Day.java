@@ -27,6 +27,7 @@ public class Day {
 
     public void updateDay() {
 
+
         kcal = 0;
         protein = 0;
         carbs = 0;
