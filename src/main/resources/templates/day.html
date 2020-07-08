@@ -13,14 +13,14 @@
 
 <div style="text-align: right; color:white" class="justify-content-end" th:object="${day}">
     <div>kcal:
-        <input th:type="text" th:value="${day.kcal}"/>
+        <label th:text="${day.kcal}"></label>
     </div>
     <br>
-    <div>protein: <input th:type="text" th:value="${day.protein}"/></div>
+    <div>protein: <label th:text="${day.protein}"></label></div>
     <br>
-    <div>fat: <input th:type="text" th:value="${day.fat}"/></div>
+    <div>fat: <label th:text="${day.fat}"></label></div>
     <br>
-    <div>carbs: <input th:type="text" th:value="${day.carbs}"/></div>
+    <div>carbs: <label th:text="${day.carbs}"></label></div>
     <br>
 
 
