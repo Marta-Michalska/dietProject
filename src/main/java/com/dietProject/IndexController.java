@@ -37,14 +37,14 @@ public class IndexController {
         request.setKcalMax(2000);
         request.setProteinMax(500);
         model.addAttribute("request", request);
-        return "/meal_list";
+        return "meal_list";
     }
 
     @GetMapping(value = "/day")
     public String day(Model model) {
         model.addAttribute("dayList", dayList);
         model.addAttribute("day", day);
-        return ("/day");
+        return ("day");
     }
 
     @PostMapping(value = "/search")
@@ -59,7 +59,7 @@ public class IndexController {
 //        meals = jsonreader.parseMealList(Config.jsonListExample);
         System.out.println(request.toString());
         model.addAttribute("mealList", meals);
-        return ("/meal_list");
+        return ("meal_list");
     }
 
     @PostMapping(value = "/addMeal")
@@ -91,7 +91,7 @@ public class IndexController {
         model.addAttribute("day", day);
         System.out.println(day.toString());
 
-        return ("/day");
+        return ("day");
     }
 
     @PostMapping(value = "/deleteMeal")
@@ -111,6 +111,6 @@ public class IndexController {
         model.addAttribute("day", day);
         System.out.println(day.toString());
 
-        return ("/day");
+        return ("day");
     }
 }
