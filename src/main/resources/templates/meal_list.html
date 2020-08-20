@@ -18,11 +18,30 @@
         <label class="form-check-label" for="kcalMin">
             kcal min:
         </label>
-        <input type="range" min="1" max="2000" value="1" class="slider" id="kcalMin" th:field="*{kcalMin}">
+        <a id="demoKcalMin"></a>
+        <input type="range" min="1" max="1500" value="1" class="slider" id="kcalMin" th:field="*{kcalMin}">
+        <script>
+            var sliderKcalMin = document.getElementById("kcalMin");
+            var outputKcalMin = document.getElementById("demoKcalMin");
+            outputKcalMin.innerHTML = sliderKcalMin.value;
+
+            sliderKcalMin.oninput = function() {
+                outputKcalMin.innerHTML = this.value;
+            }</script>
         <label class="form-check-label" for="kcalMax">
             kcal max:
         </label>
-        <input type="range" min="1" max="2000" value="2000" class="slider" id="kcalMax" th:field="*{kcalMax}">
+        <a id="demoKcalMax"></a>
+        <input type="range" min="1" max="1500" value="1500" class="slider" id="kcalMax" th:field="*{kcalMax}">
+        <script>
+            var sliderKcalMax = document.getElementById("kcalMax");
+            var outputKcalMax = document.getElementById("demoKcalMax");
+            outputKcalMax.innerHTML = sliderKcalMax.value;
+
+            sliderKcalMax.oninput = function() {
+                outputKcalMax.innerHTML = this.value;
+            }</script>
+
 
     </div><br>
 
@@ -30,22 +49,58 @@
         <label class="form-check-label" for="proteinMin">
             protein min:
         </label>
-        <input type="range" min="1" max="500" value="1" class="slider" id="proteinMin" th:field="*{proteinMin}">
+        <a id="demoProteinMin"></a>
+        <input type="range" min="1" max="150" value="1" class="slider" id="proteinMin" th:field="*{proteinMin}">
+        <script>
+            var sliderProteinMin = document.getElementById("proteinMin");
+            var outputProteinMin = document.getElementById("demoProteinMin");
+            outputProteinMin.innerHTML = sliderProteinMin.value;
+
+            sliderProteinMin.oninput = function() {
+                outputProteinMin.innerHTML = this.value;
+            }</script>
         <label class="form-check-label" for="proteinMax">
             protein max:
         </label>
-        <input type="range" min="1" max="500" value="500" class="slider" id="proteinMax" th:field="*{proteinMax}">
+        <a id="demoProteinMax"></a>
+        <input type="range" min="1" max="150" value="150" class="slider" id="proteinMax" th:field="*{proteinMax}">
+        <script>
+            var sliderProteinMax = document.getElementById("proteinMax");
+            var outputProteinMax = document.getElementById("demoProteinMax");
+            outputProteinMax.innerHTML = sliderProteinMax.value;
+
+            sliderProteinMax.oninput = function() {
+                outputProteinMax.innerHTML = this.value;
+            }</script>
     </div>
     <br>
     <div class="slidecontainer">
         <label class="form-check-label" for="carbsMin">
             carbs min:
         </label>
-        <input type="range" min="1" max="500" value="1" class="slider" id="carbsMin" th:field="*{carbsMin}">
+        <a id="demoCarbsMin"></a>
+        <input type="range" min="1" max="150" value="1" class="slider" id="carbsMin" th:field="*{carbsMin}">
+        <script>
+            var sliderCarbsMin = document.getElementById("carbsMin");
+            var outputCarbsMin = document.getElementById("demoCarbsMin");
+            outputCarbsMin.innerHTML = sliderCarbsMin.value;
+
+            sliderCarbsMin.oninput = function() {
+                outputCarbsMin.innerHTML = this.value;
+            }</script>
         <label class="form-check-label" for="carbsMax">
             carbs max:
         </label>
-        <input type="range" min="1" max="500" value="499" class="slider" id="carbsMax" th:field="*{carbsMax}">
+        <a id="demoCarbsMax"></a>
+        <input type="range" min="1" max="150" value="150" class="slider" id="carbsMax" th:field="*{carbsMax}">
+        <script>
+            var sliderCarbsMax = document.getElementById("carbsMax");
+            var outputCarbsMax = document.getElementById("demoCarbsMax");
+            outputCarbsMax.innerHTML = sliderCarbsMax.value;
+
+            sliderCarbsMax.oninput = function() {
+                outputCarbsMax.innerHTML = this.value;
+            }</script>
 
     </div>
     <br>
@@ -53,13 +108,33 @@
         <label class="form-check-label" for="fatMin">
             fat min:
         </label>
-        <input type="range" min="1" max="500" value="1" class="slider" id="fatMin" th:field="*{fatMin}">
+        <a id="demoFatMin"></a>
+        <input type="range" min="1" max="150" value="1" class="slider" id="fatMin" th:field="*{fatMin}">
+        <script>
+            var sliderFatMin = document.getElementById("fatMin");
+            var outputFatMin = document.getElementById("demoFatMin");
+            outputFatMin.innerHTML = sliderFatMin.value;
+
+            sliderFatMin.oninput = function() {
+                outputFatMin.innerHTML = this.value;
+            }</script>
         <label class="form-check-label" for="fatMax">
             fat max:
         </label>
-        <input type="range" min="1" max="500" th:value="500" class="slider" id="fatMax" th:field="*{fatMax}">
+        <a id="demoFatMax"></a>
+        <input type="range" min="1" max="150" th:value="150" class="slider" id="fatMax" th:field="*{fatMax}">
+        <script>
+            var sliderFatMax = document.getElementById("fatMax");
+            var outputFatMax = document.getElementById("demoFatMax");
+            outputFatMax.innerHTML = sliderFatMax.value;
+
+            sliderFatMax.oninput = function() {
+                outputFatMax.innerHTML = this.value;
+            }</script>
 
     </div>
+
+
 
     <!--<div class="form-check">-->
     <!--    <input class="form-check-input" th:field="*{gluten}" type="checkbox" value="" id="noGluten">-->
